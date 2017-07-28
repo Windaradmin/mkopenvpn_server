@@ -411,7 +411,7 @@ fi
 #sudo systemctl enable openvpn@server
 #sudo systemctl start openvpn@server
 ####################################
-#### nano setupupdate.sh
+#### nano setupdate.sh
 #touch /var/log/apt-security-updates
 #touch /etc/cron.daily/apt-security-updates
 #echo " date >> /etc/cron.daily/apt-security-updates
