@@ -212,8 +212,8 @@ else
 	echo "Okay, that was all I needed. We are ready to setup your OpenVPN server now"
 	read -n1 -r -p "Press any key to continue..."
 	if [[ "$OS" = 'debian' ]]; then
-		apt-get update
-		apt-get install openvpn iptables openssl ca-certificates -y
+		apt-get update -y; apt-get -y upgrade;
+		apt-get install openvpn easy-rsa iptables openssl ca-certificates fail2ban -y
 	else
 		# Else, the distro is CentOS
 		yum install epel-release -y
@@ -223,7 +223,7 @@ else
 	if [[ -d /etc/openvpn/easy-rsa/ ]]; then
 		rm -rf /etc/openvpn/easy-rsa/
 	fi
-	# Get easy-rsa
+	# Get easy-rsa  
 	wget -O ~/EasyRSA-3.0.1.tgz "https://github.com/OpenVPN/easy-rsa/releases/download/3.0.1/EasyRSA-3.0.1.tgz"
 	tar xzf ~/EasyRSA-3.0.1.tgz -C ~/
 	mv ~/EasyRSA-3.0.1/ /etc/openvpn/
@@ -407,5 +407,19 @@ verb 3" > /etc/openvpn/client-common.txt
 	echo "Your client configuration is available at" ~/"$CLIENT.ovpn"
 	echo "If you want to add more clients, you simply need to run this script again!"
 fi
+###########For Ubuntu Only!########### please uncomment if you need it ;-)
+#sudo systemctl enable openvpn@server
+#sudo systemctl start openvpn@server
+####################################
+#### nano setupupdate.sh
+#touch /var/log/apt-security-updates
+#touch /etc/cron.daily/apt-security-updates
+#echo " date >> /var/log/apt-security-updates
+#apt-get -y update >> /var/log/apt-security-updates
+#apt-get -y upgrade >> /var/log/apt-security-updates
+#apt-get autoclean >> /var/log/apt-security-updates
+#apt-get clean >> /var/log/apt-security-updates
+#"> /etc/cron.daily/apt-security-updates
+#chmod 755 /etc/cron.daily/apt-security-updates
+#/etc/cron.daily/apt-security-updates
 
-sudo systemctl restart openvpn@server
