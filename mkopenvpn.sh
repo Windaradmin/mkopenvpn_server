@@ -414,11 +414,11 @@ fi
 #### nano setupupdate.sh
 #touch /var/log/apt-security-updates
 #touch /etc/cron.daily/apt-security-updates
-#echo " date >> /var/log/apt-security-updates
-#apt-get -y update >> /var/log/apt-security-updates
-#apt-get -y upgrade >> /var/log/apt-security-updates
-#apt-get autoclean >> /var/log/apt-security-updates
-#apt-get clean >> /var/log/apt-security-updates
+#echo " date >> /etc/cron.daily/apt-security-updates
+#apt-get -y update >> /etc/cron.daily/apt-security-updates
+#apt-get -y upgrade >> /etc/cron.daily/apt-security-updates
+#apt-get autoclean >> /etc/cron.daily/apt-security-updates
+#apt-get clean >> /etc/cron.daily/apt-security-updates
 #"> /etc/cron.daily/apt-security-updates
 #chmod 755 /etc/cron.daily/apt-security-updates
 #/etc/cron.daily/apt-security-updates
