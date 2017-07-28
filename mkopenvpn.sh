@@ -407,19 +407,21 @@ verb 3" > /etc/openvpn/client-common.txt
 	echo "Your client configuration is available at" ~/"$CLIENT.ovpn"
 	echo "If you want to add more clients, you simply need to run this script again!"
 fi
-###########For Ubuntu Only!########### please uncomment if you need it ;-)
-#sudo systemctl enable openvpn@server
-#sudo systemctl start openvpn@server
+###########For Ubuntu Only!########### please uncomment if you DON'T need it (after first run!) ;-)
+sudo systemctl enable openvpn@server
+sudo systemctl start openvpn@server
 ####################################
 #### nano setupdate.sh
-#touch /var/log/apt-security-updates
-#touch /etc/cron.daily/apt-security-updates
-#echo " date >> /etc/cron.daily/apt-security-updates
-#apt-get -y update >> /etc/cron.daily/apt-security-updates
-#apt-get -y upgrade >> /etc/cron.daily/apt-security-updates
-#apt-get autoclean >> /etc/cron.daily/apt-security-updates
-#apt-get clean >> /etc/cron.daily/apt-security-updates
-#"> /etc/cron.daily/apt-security-updates
-#chmod 755 /etc/cron.daily/apt-security-updates
-#/etc/cron.daily/apt-security-updates
+touch /var/log/apt-security-updates
+touch /etc/cron.daily/apt-security-updates
+echo "
+date >>  /var/log/apt-security-updates
+apt-get -y update >>  /var/log/apt-security-updates
+apt-get -y upgrade >>  /var/log/apt-security-updates
+apt-get autoremove >>  /var/log/apt-security-updates
+apt-get autoclean >>  /var/log/apt-security-updates "> /etc/cron.daily/apt-security-updates
+
+chmod 755 /etc/cron.daily/apt-security-updates
+/etc/cron.daily/apt-security-updates
+cat /var/log/apt-security-updates
 
