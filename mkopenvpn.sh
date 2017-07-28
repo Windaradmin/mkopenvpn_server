@@ -407,11 +407,10 @@ verb 3" > /etc/openvpn/client-common.txt
 	echo "Your client configuration is available at" ~/"$CLIENT.ovpn"
 	echo "If you want to add more clients, you simply need to run this script again!"
 fi
-###########For Ubuntu Only!########### please uncomment if you DON'T need it (after first run!) ;-)
+###########For Ubuntu Only!########### please comment out if you DON'T need it (after first run!) ;-)
 sudo systemctl enable openvpn@server
 sudo systemctl start openvpn@server
 ####################################
-#### nano setupdate.sh
 touch /var/log/apt-security-updates
 touch /etc/cron.daily/apt-security-updates
 echo "
