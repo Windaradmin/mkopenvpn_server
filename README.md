@@ -11,3 +11,6 @@ and
 https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh
 
 To install from the REAL VPN-site : wget https://git.io/vpn -O openvpn-install.sh
+
+The Easy-RSA :  https://github.com/OpenVPN/easy-rsa/releases/tag/3.0.1
+Or my fork : https://github.com/sunadtudk/easy-rsa
