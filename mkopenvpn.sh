@@ -170,7 +170,7 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 	done
 else
 	clear
-	echo 'Welcome to this quick OpenVPN "road warrior" installer'
+	echo 'Welcome to this quick OpenVPN installer'
 	echo ""
 	# OpenVPN setup and first user creation
 	echo "I need to ask you a few questions before starting the setup"
@@ -213,7 +213,7 @@ else
 	read -n1 -r -p "Press any key to continue..."
 	if [[ "$OS" = 'debian' ]]; then
 		apt-get update -y; apt-get -y upgrade;
-		apt-get install openvpn easy-rsa iptables openssl ca-certificates fail2ban -y
+		apt-get install openvpn easy-rsa iptables openssl ca-certificates fail2ban unattended-upgrades -y
 	else
 		# Else, the distro is CentOS
 		yum install epel-release -y
@@ -424,3 +424,5 @@ chmod 755 /etc/cron.daily/apt-security-updates
 /etc/cron.daily/apt-security-updates
 cat /var/log/apt-security-updates
 
+#sudo apt-get install unattended-upgrades
+#sudo dpkg-reconfigure --priority=low unattended-upgrades
