@@ -16,3 +16,6 @@ The Easy-RSA :  https://github.com/OpenVPN/easy-rsa/releases/tag/3.0.1
 Or my fork : https://github.com/sunadtudk/easy-rsa
 
 Please do a automatically install security updates. More info :  https://help.ubuntu.com/community/AutomaticSecurityUpdates
+
+Webinterface (VPN AS) : http://swupdate.openvpn.org/as/openvpn-as-2.1.12-Ubuntu16.amd_64.deb
+
